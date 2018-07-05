@@ -4,16 +4,19 @@ Class to control using Chrome.
 from selenium import webdriver
 from robot.api.deco import keyword
 from robot.utils import asserts
+import os
 
 
 class ChromeNavigation(object):
 
     def __init__(self):
-        self.browser = webdriver.Chrome('/Users/mad/chromedriver')
+        self.browser = None
         self.current_page = None
+        self.user = os.environ['USER']
 
     @keyword('Open Chrome And Navigate To ${Url}')
     def open_chrome(self, url):
+        self.browser = webdriver.Chrome('/Users/{}/chromedriver'.format(self.user))
         driver = self.browser
         driver.get(url=url)
 
