@@ -8,15 +8,19 @@ Suite Teardown      Close All Browsers
 
 *** Test Cases ***
 Go To Google And Search "Big Cats"
-    Open Browser    ${Url}          browser=${Browser1}
-    Input Text      ${Field_Id}     ${Search_Parameter1}
-    Click Button    ${Google_Search}
+    Open Browser        ${Url}              browser=${Browser1}
+    Input Text          ${Field_Id}         ${Search_Parameter1}
+    Click Button        ${Google_Search}
+    ${Title}            Get Title
+    Should Be Equal     ${Title}            ${Page_Title1}
     Close Browser
 
 Go To Google And Search "Motorcycles"
-    Open Browser    ${Url}          browser=${Browser2}
-    Input Text      ${Field_Id}     ${Search_Parameter2}
-    Click Button    ${Google_Search}
+    Open Browser        ${Url}              browser=${Browser2}
+    Input Text          ${Field_Id}         ${Search_Parameter2}
+    Click Button        ${Google_Search}
+    ${Title}            Get Title
+    Should Be Equal     ${Title}            ${Page_Title2}
     Close Browser
 
 *** Variables ***

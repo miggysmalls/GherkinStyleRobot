@@ -17,19 +17,16 @@ class ChromeNavigation(object):
     @keyword('Open Chrome And Navigate To ${Url}')
     def open_chrome(self, url):
         self.browser = webdriver.Chrome('/Users/{}/chromedriver'.format(self.user))
-        driver = self.browser
-        driver.get(url=url)
+        self.browser.get(url=url)
 
     @keyword('In Chrome I Enter ${Search_Parameter} And Click On "Google Search"')
     def ask_google(self, search_parameter):
-        driver = self.browser
-        search_field = driver.find_element_by_id('lst-ib')
+        search_field = self.browser.find_element_by_id('lst-ib')
         search_field.send_keys(search_parameter)
         driver.find_element_by_css_selector('input[value=\'Google Search\']').click()
 
     @keyword('Chrome Title Should Be ${Title}')
     def check_page_title(self, title):
-        driver = self.browser
-        asserts.assert_equal(driver.title, title, msg='Search parameter and page title do not match!')
+        asserts.assert_equal(self.browser.title, title, msg='Search parameter and page title do not match!')
 
 

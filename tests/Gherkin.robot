@@ -10,7 +10,7 @@ Suite Teardown      Close All Browsers
 
 *** Test Cases ***
 Go To Google And Search "Big Cats"
-    Given Open ${Url} With ${Browser}
+    Given Open ${Url} With ${Browser1}
     When I Enter A ${Search_Parameter1} And Click On "Google Search"
     Then I Expect To See The Title Of The Page To Equql ${Page_Title1}
 
